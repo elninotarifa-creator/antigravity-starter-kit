@@ -1,0 +1,19 @@
+# Credenciales y secretos — NUNCA subir
+.env
+*.pass
+gcp-oauth.keys.json
+credentials/
+*-credentials.json
+*-token.json
+.mcp-credentials/
+
+# El claude.json REAL nunca se sube (solo el .template)
+claude.json
+.claude.json
+
+# Ruido
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store

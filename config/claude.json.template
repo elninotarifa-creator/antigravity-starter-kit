@@ -1,0 +1,75 @@
+{
+  "//": "PLANTILLA de ~/.claude.json — copia los servidores que necesites al tuyo. Sustituye TODOS los placeholders. NINGUN valor real va aqui.",
+  "mcpServers": {
+    "gmail-eln": {
+      "command": "npx",
+      "args": ["-y", "@gongrzhe/server-gmail-autoauth-mcp"],
+      "env": {
+        "GMAIL_OAUTH_PATH": "/RUTA/ABSOLUTA/A/gcp-oauth.keys.json",
+        "GMAIL_CREDENTIALS_PATH": "/RUTA/ABSOLUTA/A/credentials/gmail-1-credentials.json"
+      }
+    },
+    "gmail-soporte": {
+      "command": "npx",
+      "args": ["-y", "@gongrzhe/server-gmail-autoauth-mcp"],
+      "env": {
+        "GMAIL_OAUTH_PATH": "/RUTA/ABSOLUTA/A/gcp-oauth.keys.json",
+        "GMAIL_CREDENTIALS_PATH": "/RUTA/ABSOLUTA/A/credentials/gmail-2-credentials.json"
+      }
+    },
+    "gdrive-1": {
+      "command": "npx",
+      "args": ["-y", "@isaacphi/mcp-gdrive"],
+      "env": {
+        "CLIENT_ID": "TU_GOOGLE_OAUTH_CLIENT_ID",
+        "CLIENT_SECRET": "TU_GOOGLE_OAUTH_CLIENT_SECRET",
+        "GDRIVE_CREDS_DIR": "/RUTA/ABSOLUTA/A/credentials/gdrive-1"
+      }
+    },
+    "gdrive-2": {
+      "command": "npx",
+      "args": ["-y", "@isaacphi/mcp-gdrive"],
+      "env": {
+        "CLIENT_ID": "TU_GOOGLE_OAUTH_CLIENT_ID",
+        "CLIENT_SECRET": "TU_GOOGLE_OAUTH_CLIENT_SECRET",
+        "GDRIVE_CREDS_DIR": "/RUTA/ABSOLUTA/A/credentials/gdrive-2"
+      }
+    },
+    "email-imap": {
+      "//": "Wrapper que lee la password de un fichero local y lanza el MCP de email IMAP/SMTP. Ver scripts/run-email.sh.template",
+      "command": "/RUTA/ABSOLUTA/A/scripts/run-email.sh",
+      "args": [],
+      "env": {}
+    },
+    "gcal-1": {
+      "command": "npx",
+      "args": ["-y", "@cocal/google-calendar-mcp"],
+      "env": {
+        "GOOGLE_OAUTH_CREDENTIALS": "/RUTA/ABSOLUTA/A/gcp-oauth.keys.json",
+        "GOOGLE_CALENDAR_MCP_TOKEN_PATH": "/RUTA/ABSOLUTA/A/credentials/gcal-1-token.json"
+      }
+    },
+    "gcal-2": {
+      "command": "npx",
+      "args": ["-y", "@cocal/google-calendar-mcp"],
+      "env": {
+        "GOOGLE_OAUTH_CREDENTIALS": "/RUTA/ABSOLUTA/A/gcp-oauth.keys.json",
+        "GOOGLE_CALENDAR_MCP_TOKEN_PATH": "/RUTA/ABSOLUTA/A/credentials/gcal-2-token.json"
+      }
+    },
+    "whatsapp": {
+      "//": "Requiere clonar y arrancar whatsapp-mcp (ver docs/WHATSAPP.md). Cambia la ruta --directory a donde lo clones.",
+      "command": "/opt/homebrew/bin/uv",
+      "args": ["--directory", "/RUTA/ABSOLUTA/A/whatsapp-mcp/whatsapp-mcp-server", "run", "main.py"],
+      "env": {}
+    },
+    "apify": {
+      "type": "http",
+      "url": "https://mcp.apify.com"
+    },
+    "arcads": {
+      "type": "http",
+      "url": "https://mcp.arcads.ai"
+    }
+  }
+}

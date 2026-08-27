@@ -1,0 +1,19 @@
+#!/bin/bash
+# Wrapper del MCP de email IMAP/SMTP.
+# Lee la password de un fichero local con permisos 600 (NUNCA la escribas en claude.json).
+#
+# 1) Guarda tu password:  echo 'TU_PASSWORD' > ~/.mcp-credentials/email.pass && chmod 600 ~/.mcp-credentials/email.pass
+# 2) Ajusta EMAIL y SERVER abajo.
+# 3) chmod +x este script y apunta a el desde claude.json (servidor "email-imap").
+
+PASS_FILE="$HOME/.mcp-credentials/email.pass"
+EMAIL="tu-correo@tu-dominio.com"
+IMAP_SERVER="mail.tu-dominio.com"
+
+if [ ! -r "$PASS_FILE" ]; then
+  echo "Falta el archivo de password: $PASS_FILE" >&2
+  exit 1
+fi
+PW="$(cat "$PASS_FILE")"
+export EMAIL_CREDENTIALS="${EMAIL}:${PW}:${IMAP_SERVER}"
+exec npx -y @n24q02m/better-email-mcp
