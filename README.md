@@ -21,7 +21,7 @@ Kit para montar desde cero un entorno de **Antigravity IDE + Claude Code** con t
 
 ## Requisitos previos
 
-- **macOS** (Apple Silicon recomendado) o Linux.
+- **Windows**, **macOS** (Apple Silicon recomendado) o Linux.
 - [**Antigravity IDE**](https://antigravity.google) instalado.
 - [**Claude Code**](https://docs.claude.com/en/docs/claude-code) (`npm install -g @anthropic-ai/claude-code`) y una cuenta de Anthropic.
 - **Node.js LTS** y **Go** (solo para el bridge de WhatsApp).
@@ -30,13 +30,22 @@ Kit para montar desde cero un entorno de **Antigravity IDE + Claude Code** con t
 
 ## Instalación rápida
 
+**Windows** (PowerShell):
+```powershell
+git clone <URL-DE-ESTE-REPO> antigravity-starter-kit
+cd antigravity-starter-kit
+powershell -ExecutionPolicy Bypass -File scripts\install.ps1
+```
+> Lee también [`docs/WINDOWS.md`](docs/WINDOWS.md) (rutas del `.claude.json`, `uv`, email).
+
+**macOS / Linux**:
 ```sh
 git clone <URL-DE-ESTE-REPO> antigravity-starter-kit
 cd antigravity-starter-kit
 bash scripts/install.sh
 ```
 
-El script instala `uv`, **Playwright** + navegadores, y copia las **55 skills** a `~/.claude/skills`.
+El script instala `uv`, **Playwright** + navegadores, y copia las **55 skills** a `~/.claude/skills` (o `%USERPROFILE%\.claude\skills` en Windows).
 
 Después, configuración manual (una vez):
 
@@ -46,6 +55,7 @@ Después, configuración manual (una vez):
 4. **WhatsApp** → [`docs/WHATSAPP.md`](docs/WHATSAPP.md)
 5. **Email IMAP** → `scripts/run-email.sh.template`
 6. **Playwright** → [`docs/PLAYWRIGHT.md`](docs/PLAYWRIGHT.md)
+7. **Poner Antigravity en español** → [`docs/IDIOMA-ESPANOL.md`](docs/IDIOMA-ESPANOL.md)
 
 ---
 
@@ -55,7 +65,8 @@ Después, configuración manual (una vez):
 antigravity-starter-kit/
 ├── README.md
 ├── scripts/
-│   ├── install.sh                 # instalador (Playwright + skills + deps)
+│   ├── install.sh                 # instalador macOS/Linux (Playwright + skills + deps)
+│   ├── install.ps1                # instalador Windows (PowerShell)
 │   └── run-email.sh.template      # wrapper del MCP de email IMAP
 ├── config/
 │   ├── claude.json.template       # plantilla de ~/.claude.json (10 MCP)
@@ -63,6 +74,8 @@ antigravity-starter-kit/
 │   └── gcp-oauth.keys.example.json
 ├── docs/
 │   ├── GOOGLE.md · APIFY.md · WHATSAPP.md · PLAYWRIGHT.md
+│   ├── WINDOWS.md                 # ajustes específicos de Windows
+│   └── IDIOMA-ESPANOL.md          # traducir la interfaz al español
 ├── skills/                        # 55 skills (ver SKILLS.md)
 └── SKILLS.md
 ```
