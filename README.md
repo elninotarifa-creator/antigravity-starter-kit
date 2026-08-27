@@ -56,6 +56,7 @@ Después, configuración manual (una vez):
 5. **Email IMAP** → `scripts/run-email.sh.template`
 6. **Playwright** → [`docs/PLAYWRIGHT.md`](docs/PLAYWRIGHT.md)
 7. **Poner Antigravity en español** → [`docs/IDIOMA-ESPANOL.md`](docs/IDIOMA-ESPANOL.md)
+8. **Hablar por voz a Antigravity / Claude Code** → [`docs/VOZ.md`](docs/VOZ.md)
 
 ---
 
@@ -67,6 +68,8 @@ antigravity-starter-kit/
 ├── scripts/
 │   ├── install.sh                 # instalador macOS/Linux (Playwright + skills + deps)
 │   ├── install.ps1                # instalador Windows (PowerShell)
+│   ├── voz-setup.ps1              # configura el control por voz (Windows)
+│   ├── push-to-talk.ahk          # "botón para hablar" (AutoHotkey)
 │   └── run-email.sh.template      # wrapper del MCP de email IMAP
 ├── config/
 │   ├── claude.json.template       # plantilla de ~/.claude.json (10 MCP)
@@ -75,7 +78,8 @@ antigravity-starter-kit/
 ├── docs/
 │   ├── GOOGLE.md · APIFY.md · WHATSAPP.md · PLAYWRIGHT.md
 │   ├── WINDOWS.md                 # ajustes específicos de Windows
-│   └── IDIOMA-ESPANOL.md          # traducir la interfaz al español
+│   ├── IDIOMA-ESPANOL.md          # traducir la interfaz al español
+│   └── VOZ.md                     # hablar por voz (dictado) a Antigravity
 ├── skills/                        # 55 skills (ver SKILLS.md)
 └── SKILLS.md
 ```
